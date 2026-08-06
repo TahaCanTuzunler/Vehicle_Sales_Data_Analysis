@@ -24,3 +24,24 @@ WHERE
 	OR odometer IS NULL
 	OR mmr IS NULL
 	OR sellingprice IS NULL;
+	
+
+--- BODY AND TRANSMISSON NULL VALUES FIXING
+
+SELECT * FROM first_car_sales
+WHERE
+	transmission IS NULL
+	OR body IS NULL;
+
+--- 65769 NULL VALUES FOR BODY AND TRANMISSION
+--- WE UPDATE WITH 'UNKNOWN'
+
+UPDATE first_car_sales
+SET
+    transmission = COALESCE(transmission, 'UNKNOWN'),
+    body = COALESCE(body, 'UNKNOWN')
+WHERE
+    transmission IS NULL 
+	OR body IS NULL;
+
+--- I USED COALESCE, IT MEANS, IF THE VALUE IS NULL UPDATE WITH UNKNOWN
