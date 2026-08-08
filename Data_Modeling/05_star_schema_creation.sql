@@ -19,3 +19,28 @@ CREATE TABLE dim_vehicle (
 INSERT INTO dim_vehicle (year, make, model, trim, body, transmission, color, interior)
 SELECT DISTINCT year, make, model, trim, body, transmission, color, interior
 FROM first_car_sales;
+
+
+--- SELLER TABLE HAS BEEN CREATED. SECOND DIMENSION TABLE
+
+CREATE TABLE dim_seller (
+		seller_id SERIAL PRIMARY KEY,
+		seller_name VARCHAR(150)
+);
+
+
+INSERT INTO dim_seller (seller_name)
+SELECT DISTINCT seller
+FROM first_car_sales;
+
+
+--- LOCATION TABLE HAS BEEN CREATED. THIRD DIMENSION TABLE
+
+CREATE TABLE dim_location (
+		location_id SERIAL PRIMARY KEY,
+		state VARCHAR(50)
+);
+
+INSERT INTO dim_location (state)
+SELECT DISTINCT state
+FROM first_car_sales;
