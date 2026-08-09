@@ -44,3 +44,56 @@ CREATE TABLE dim_location (
 INSERT INTO dim_location (state)
 SELECT DISTINCT state
 FROM first_car_sales;
+
+---FACT TABLE CREATION
+
+--- saledate COLUMN FROM first_car_sales DATA TYPE CHANGED TO "DATE" 
+--- DELETED THE HOUR INFORMATIONS
+--- TO MAKE IT SIMPLE AND FASTER
+
+ALTER TABLE first_car_sales
+ALTER COLUMN saledate TYPE DATE
+USING TO_DATE(SUBSTRING(saledate, 1, 24), 'Dy Mon DD YYYY HH24:MI:SS');
+
+--- FACT TABLE CREATED
+
+CREATE TABLE fact_sales (
+	sale_id SERIAL PRIMARY KEY,
+	vin VARCHAR(100),
+	vehicle_id INT REFERENCES dim_vehicle(vehicle_id),
+	seller_id INT REFERENCES dim_seller(seller_id),
+	location_id INT REFERENCES dim_location(location_id),
+	condition INT,
+	odometer INT,
+	mmr INT,
+	sellingprice INT,
+	saledate DATE
+);
+
+
+--- DATA IMPORTED FROM first_car_sales, dim_vehicle, dim_seller, dim_location TO fact_sales TABLE
+--- f: first_car_sales / v: dim_vehicle / l: dim_location / s: dim_seller
+
+INSERT INTO fact_sales (vin, vehicle_id, seller_id, location_id, condition, odometer, mmr, sellingprice, saledate)
+SELECT 
+	f.vin,
+	v.vehicle_id,
+	s.seller_id,
+	l.location_id,
+	f.condition,
+	f.odometer,
+	f.mmr,
+	f.sellingprice,
+	f.saledate
+FROM first_car_sales f
+JOIN dim_vehicle v ON
+	f.year = v.year AND
+	f.make = v.make AND
+	f.model = v.model AND
+	f.trim = v.trim AND
+	f.body = v.body AND
+	f.transmission = v.transmission AND
+	f.color = v.color AND
+	f.interior = v.interior
+JOIN dim_seller s ON f.seller = s.seller_name
+JOIN dim_location l ON f.state = l.state;
