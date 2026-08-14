@@ -27,10 +27,14 @@ The foundation of the analysis relies on a well-structured Star Schema connected
 
 ![Star Schema](./Power_BI/power_bi_first.png) 
 
-#### 2. Executive Dashboard (v1.0)
-The front-end interface designed for management-level insights, featuring corporate KPIs and Top N model volume analysis.
+#### 2. Executive Dashboard (v2.0: Interactive Release)
+The front-end interface has been upgraded to a fully interactive Executive Summary level. 
+**Key additions in this version:**
+* **Financial Quarter Slicers (Q1-Q4):** Premium UI buttons allowing rapid drill-down into specific financial periods without cluttering the screen.
+* **Cross-Filtering:** Seamless interaction between the Top N Model volume bar chart and the price trend analysis.
+* **Dynamic Price Trends:** A smoothed time-series line chart tracking the average value of vehicles across months and years.
 
-![Dashboard](./Power_BI/dashboard_v1.png)
+![Dashboard v2](./Power_BI/dashboard_v2.png)
 
 ### 🚧 Work in Progress 
 
@@ -50,14 +54,18 @@ Proje, kurumsal mühendislik standartlarını yansıtacak şekilde modüler bir 
 
 ### 📊 Görsel Vitrin
 
-#### 1. Veri Mimarisi (Yıldız Şema)
-Analizin temeli, optimize edilmiş sorgu performansı ve doğru DAX hesaplamaları sağlayan, yabancı anahtarlarla (foreign key) bağlanmış iyi yapılandırılmış bir Yıldız Şema mimarisine dayanmaktadır.
+#### 1. Veri Mimarisi (Star Schema)
+Analizin temeli, optimize edilmiş sorgu performansı ve doğru DAX hesaplamaları sağlamak için foreign key'ler ile birbirine bağlanan iyi yapılandırılmış bir Yıldız Şema'ya dayanmaktadır.
 
-![Yıldız Şema](./Power_BI/power_bi_first.png) 
+![Star Schema](./Power_BI/power_bi_first.png) 
 
-#### 2. Yönetici Panosu (v1.0)
-Kurumsal finansal KPI'ları ve İlk N (Top N) model hacim analizini içeren, yönetim seviyesinde içgörüler sunmak üzere tasarlanmış ön yüz arayüzü.
+#### 2. Yönetici Özeti Dashboard (v2.0: İnteraktif Sürüm)
+Ön yüz arayüzü, tam etkileşimli bir Yönetici Özeti seviyesine yükseltildi. 
+**Bu sürümdeki temel eklemeler:**
+* **Finansal Çeyrek Butonları (Q1-Q4):** Ekranı karmaşıklaştırmadan belirli finansal dönemlere hızlıca odaklanmayı sağlayan premium arayüz dilimleyicileri.
+* **Çapraz Filtreleme (Cross-Filtering):** Marka/Model satış hacmi grafiği ile fiyat trendi analizi arasında kusursuz ve anlık etkileşim.
+* **Dinamik Zaman Trendleri:** Araçların aylar ve yıllar içindeki ortalama değerini takip eden, kurumsal tasarıma uygun zaman serisi çizgi grafiği.
 
-![Dashboard](./Power_BI/dashboard_v1.png)
+![Dashboard v2](./Power_BI/dashboard_v2.png)
 
 ### 🚧 Geliştirme Aşamasında 
