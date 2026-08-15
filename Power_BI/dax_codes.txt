@@ -1,0 +1,28 @@
+--- DAX CODES in _measures ---
+
+Gecen Yil Geliri = 
+CALCULATE (
+    [Toplam Gelir],
+    SAMEPERIODLASTYEAR (dim_date[date])
+)
+
+---
+
+Ortalama Arac Fiyati = AVERAGE('fact_sales'[sellingprice])
+
+---
+
+Toplam Gelir = SUM('fact_sales'[sellingprice])
+
+---
+
+Toplam Satis Adedi = COUNTROWS('fact_sales')
+
+---
+
+YoY Büyüme = 
+DIVIDE (
+    [Toplam Gelir] - [Gecen Yil Geliri],
+    [Gecen Yil Geliri],
+    0
+)
