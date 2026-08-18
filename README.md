@@ -1,4 +1,4 @@
-# 🚗 Vehicle Sales Data Analysis & BI Dashboard
+# 🚗 Vehicle Sales Data Analytics & BI Dashboard
 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
@@ -40,7 +40,7 @@ The foundation of the analysis relies on a well-structured Star Schema connected
 ---
 ---
 
-# 🚗 Araç Satış Veri Analizi ve İş Zekası (BI) Panosu
+# 🚗 Araç Satış Veri Analitiği ve İş Zekası (BI) Panosu
 
 Otomotiv dinamiklerine ve veri bilimine olan güçlü ilgimden yola çıkarak tasarladığım bu proje, 500.000'den fazla ham araç satış kaydını etkileşimli bir İş Zekası panosuna dönüştürmektedir. Otomotiv sektöründe veri odaklı karar almayı desteklemek amacıyla pazar trendlerini, fiyatlandırma stratejilerini ve en çok satan modelleri ortaya çıkarmayı hedeflemektedir.
 
